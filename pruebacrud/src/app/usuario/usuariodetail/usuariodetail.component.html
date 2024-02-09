@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Formulario de creación de usuarios</h1>
+  <div class="dialog-content">
+    <div>Contenido del diálogo...</div>
+  </div>
+
+  <section>
+    <p-card>
+      <form
+      #f="ngForm"
+      (ngSubmit)="guardarUsuarios(f)"
+      >
+      <div class="p-col-12 p-md-3">
+        <span class="p-float-label">
+          <input pInputText id="nombre" [(ngModel)]="nombre" required/>
+          <label for="nombre">Nombre</label>
+
+        </span>
+      </div>
+        <div class="p-col-12 p-md-4">
+        <span class="p-float-label">
+          <input pInputText id="apellido" [(ngModel)]="apellido" required/>
+          <label for="apellido">Apellido</label>
+        </span>
+
+      </div>
+
+      <div class="card flex justify-content-center">
+        <p-dropdown [options]="typesId" [(ngModel)]="selectedTypeId" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
+      </div>
+      </form>
+    </p-card>
+
+  </section>
+
+</div>
