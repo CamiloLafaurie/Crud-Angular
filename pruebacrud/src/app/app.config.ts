@@ -3,9 +3,10 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { UsuariosService } from './usuario/usuario.service';
-import { SharedModule } from './shared.module';
+import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
 
-  providers: [provideRouter(routes), UsuariosService],
+  providers: [provideRouter(routes), UsuariosService, provideClientHydration(), provideAnimationsAsync()],
 };

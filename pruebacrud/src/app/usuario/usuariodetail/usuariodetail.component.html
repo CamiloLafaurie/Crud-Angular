@@ -1,36 +1,77 @@
-<div class="container">
-  <h1>Formulario de creación de usuarios</h1>
-  <div class="dialog-content">
-    <div>Contenido del diálogo...</div>
+<form #f="ngForm" (ngSubmit)="guardarUsuarios(f)">
+  <div class="container">
+    <h1>Formulario de creación de usuarios</h1>
+    <div class="dialog-content">
+      <section>
+        <div class="p-grid p-fluid">
+          <div class="p-col-12">
+            <div class="p-grid p-dir-col">
+              <div class="p-col">
+                <label for="tipoidentificacion">Tipo identificacion</label>
+                <span class="p-float-label">
+                  <p-dropdown [options]="tipoIdentificacion" [(ngModel)]="selectedTypeId" optionLabel="tipoidentificacion"  placeholder="Tipo identificacion" name="tipoidentificacion"></p-dropdown>
+                </span>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="identificacion">identificacion</label>
+                    <input pInputText id="identificacion" aria-describedby="identificacion-help" [(ngModel)]="identificacion" name="identificacion" />
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="nombre">nombre</label>
+                    <input pInputText id="nombre" aria-describedby="nombre-help" [(ngModel)]="nombre" name="nombre" />
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="apellido">apellido</label>
+                    <input pInputText id="apellido" aria-describedby="apellido-help" [(ngModel)]="apellido" name="apellido" />
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="correo">correo</label>
+                    <input pInputText id="correo" aria-describedby="correo-help" [(ngModel)]="correo" name="correo" />
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="edad">edad</label>
+                    <input pInputText pKeyFilter="int" placeholder="Numeros" [(ngModel)]="edad" name="edad" />
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="fechaNacimiento">Fecha nacimiento</label>
+                    <p-calendar [(ngModel)]="fechaNacimiento" name="fechaNacimiento"></p-calendar>
+                  </div>
+                </div>
+              </div><br>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <button pButton pRipple type="submit" label="Guardar" class="p-button-success"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
   </div>
-
-  <section>
-    <p-card>
-      <form
-      #f="ngForm"
-      (ngSubmit)="guardarUsuarios(f)"
-      >
-      <div class="p-col-12 p-md-3">
-        <span class="p-float-label">
-          <input pInputText id="nombre" [(ngModel)]="nombre" required/>
-          <label for="nombre">Nombre</label>
-
-        </span>
-      </div>
-        <div class="p-col-12 p-md-4">
-        <span class="p-float-label">
-          <input pInputText id="apellido" [(ngModel)]="apellido" required/>
-          <label for="apellido">Apellido</label>
-        </span>
-
-      </div>
-
-      <div class="card flex justify-content-center">
-        <p-dropdown [options]="typesId" [(ngModel)]="selectedTypeId" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
-      </div>
-      </form>
-    </p-card>
-
-  </section>
-
-</div>
+</form>
