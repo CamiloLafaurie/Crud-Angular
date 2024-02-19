@@ -1,4 +1,5 @@
 import { Usuarios } from "./usuario.module";
+import { Subject } from "rxjs";
 
 export class UsuariosService{
   private usuariosLista: Usuarios[] =[
@@ -8,10 +9,17 @@ export class UsuariosService{
     { identificacion: '4', tipoIdentificacion:'T.I', nombre:'Claire' , apellido:"Lafaurie", correo:'Claire@gmail.com', edad:'1', fechaNacimiento:new Date('2023-10-14')},
   ];
 
+
+usuarioSubjet = new Subject<Usuarios>();
 obtenerUsuarios(){
   return this.usuariosLista.slice();
 }
 
+  guardarUsuarios(usuario: Usuarios){
+    this.usuariosLista.push(usuario);
+    this.usuarioSubjet.next(usuario);
+
+  }
 }
 
 
