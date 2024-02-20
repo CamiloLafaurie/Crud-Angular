@@ -1,0 +1,80 @@
+<form (ngSubmit)="guardarUsuario()" [formGroup]="usuarioForm">
+  <div class="container">
+    <h1>Formulario de creación de usuarios</h1>
+    <div class="dialog-content">
+      <section>
+        <div class="p-grid p-fluid">
+          <div class="p-col-12">
+            <div class="p-grid p-dir-col">
+              <div class="p-col">
+                <label for="tipoIdentificacion">Tipo identificacion</label>
+                <span class="p-float-label">
+                  <p-dropdown [options]="tiposIdentificacion" name="tipoIdentificacion" optionLabel="name"  formControlName="tipoIdentificacion" placeholder="Please select a ..."></p-dropdown>
+                </span>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="identificacion">identificacion</label>
+                    <input pInputText id="identificacion" aria-describedby="identificacion-help" name="identificacion" formControlName="identificacion">
+                  @if (usuarioForm.get('identificacion')?.hasError('required') && usuarioForm.get('identificacion')?.touched) {
+                    <div class="form-error">identificacion es obligatoria</div>
+                  }
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="nombre">nombre</label>
+                    <input pInputText id="nombre" aria-describedby="nombre-help"  name="nombre" formControlName="nombre"/>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="apellido">apellido</label>
+                    <input pInputText id="apellido" aria-describedby="apellido-help" name="apellido" formControlName="apellido">
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="correo">correo</label>
+                    <input pInputText id="correo" aria-describedby="correo-help" name="correo" formControlName="correo"/>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="edad">edad</label>
+                    <input pInputText pKeyFilter="int" placeholder="Numeros" name="edad" formControlName="edad"/>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <label for="fechaNacimiento">Fecha nacimiento</label>
+                    <p-calendar name="fechaNacimiento" formControlName="fechaNacimiento"></p-calendar>
+                  </div>
+                </div>
+              </div><br>
+              <div class="p-col">
+                <div class="card flex justify-content-center">
+                  <div class="flex flex-column gap-2">
+                    <button pButton pRipple type="submit" label="Guardar" class="p-button-success"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+</form>
